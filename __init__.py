@@ -316,7 +316,7 @@ def questionnaire(questionnaire_id):
 
         ques_list = get_ques_list(q)
 
-        pics = os.listdir('/Users/SuperFrank/Desktop/work/Plask-backup/Plask-master/app/static/img/'+q.description+"/")
+        pics = os.listdir('/var/www/FlaskApp/FlaskApp/static/img/'+q.description+"/")
 
         return render_template('questionnaire_report.html',
             questionnaire_id = questionnaire_id,
@@ -544,7 +544,7 @@ def fill(q_id):
     q = Questionnaire.query.get(q_id)
     if not q:
         return "ERROR!"
-    pics = os.listdir('/Users/SuperFrank/Desktop/work/Plask-backup/Plask-master/app/static/img/'+q.description+"/")
+    pics = os.listdir('/var/www/FlaskApp/FlaskApp/static/img/'+q.description+"/")
 
     #begin access control
     if q.get_status() == 'Banned':
